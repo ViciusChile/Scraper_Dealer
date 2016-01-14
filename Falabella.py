@@ -91,8 +91,8 @@ class Falabella:
             price = price[0].text_content()
             price = price.replace('.', '').strip()
             product.price = price
-            product.stock = ''
         else:
+            product.price = None
             product.stock = 'Sin stock'
 
         # stock = html.cssselect('')
@@ -100,6 +100,7 @@ class Falabella:
         #     # disponible
         #     stock = stock[0].text_content()
         #     product.stock = stock.strip()
+        #product.stock = ''
         product.url = url
         product.image_url = Falabella.get_image(url, html)
         print(vars(product))
