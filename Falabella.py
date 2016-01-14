@@ -91,17 +91,18 @@ class Falabella:
             price = price[0].text_content()
             price = price.replace('.', '').strip()
             product.price = price
+            product.stock = ''
+        else:
+            product.stock = 'Sin stock'
 
-        #
         # stock = html.cssselect('')
         # if stock:
         #     # disponible
         #     stock = stock[0].text_content()
         #     product.stock = stock.strip()
-        product.stock = ''
         product.url = url
         product.image_url = Falabella.get_image(url, html)
-        #print(vars(product))
+        print(vars(product))
         #TODO: mish
         #print(html.cssselect('#jsonArray')[0].text_content().strip())
         return product, http_code
